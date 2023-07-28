@@ -56,7 +56,7 @@ const App: React.FC<AppProps> = (props: AppProps) => {
     <SafeAreaView style={styles.container}>
       <FlatList
         data={props.chat.messages}
-        keyExtractor={item => item.timestamp.toString()}
+        keyExtractor={(item) => item.timestamp.toString()}
         renderItem={({item}) => (
           <View style={styles.messageContainer}>
             <Text style={styles.messageText}>{item.text}</Text>
@@ -82,10 +82,8 @@ const App: React.FC<AppProps> = (props: AppProps) => {
     </SafeAreaView>
   );
 };
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(App);
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 const styles = StyleSheet.create({
   container: {
     margin: 10,
